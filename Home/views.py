@@ -1,8 +1,8 @@
 from django.contrib import messages
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import View
 
-from Home.models import Slider
+from Home.models import Slider, Album, Gallery
 from .forms import ContactUsForm
 
 
@@ -20,8 +20,8 @@ class AboutUsView(View):
     template_name = 'Home/about.html'
 
     def get(self, request, *args, **kwargs):
-
         return render(request, self.template_name, context={})
+
 
 class ContactUsView(View):
     template_name = 'Home/contact.html'
@@ -42,3 +42,20 @@ class ContactUsView(View):
                 for error in f.errors:
                     messages.error(request, error, 'danger')
         return redirect('home:contact')
+
+
+class AlbumsView(View):
+    template_name = 'Home/album.html'
+
+    def get(self, request, *args, **kwargs):
+        albums = Album.objects.all()
+        return render(request, self.template_name, context={'albums': albums})
+
+
+class AlbumDetailView(View):
+    template_name = 'Home/album-details.html'
+
+    def get(self, request, *args, **kwargs):
+        album = get_object_or_404(Album, pk=kwargs['pk'])
+        images = Gallery.objects.filter(album=album)
+        return render(request, self.template_name, context={'images': images, 'album': album})

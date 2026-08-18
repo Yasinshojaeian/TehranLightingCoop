@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+    <!-- Main -->
+    <main>
+        <!-- Page Banner -->
+        <div class="page-banner overlay">
+            <picture class="media media-bg">
+                <source media="(max-width: 575px)" srcset="{{ album.cover.url}}">
+                <source media="(max-width: 991px)" srcset="{{ album.cover.url}}">
+                <img alt="تصویر بنر صفحه" height="520" loading="eager" src="{{ album.cover.url}}"
+                     width="1920"/>
+                </source>
+                </source>
+            </picture>
+            <div class="page-banner-content">
+                <div class="container text-center">
+                    <h1 class="heading text-80 fw-700" data-aos="fade-up">
+                        آلبوم تصاویر
+                    </h1>
+                    <ul class="breadcrumb list-unstyled" data-aos="fade-up" data-aos-delay="100">
+                        <li>
+                            <a aria-label="Home Page" class="text text-18" href="index.html">
+                                صفحه اصلی
+                            </a>
+                        </li>
+                        <li>
+                            <svg fill="none" height="12" viewbox="0 0 8 12" class="customiconrtl" width="8"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path clip-rule="evenodd"
+                                      d="M7.08929 5.40903C7.24552 5.5653 7.33328 5.77723 7.33328 5.9982C7.33328 6.21917 7.24552 6.43109 7.08929 6.58736L2.37512 11.3015C2.29825 11.3811 2.2063 11.4446 2.10463 11.4883C2.00296 11.532 1.89361 11.5549 1.78296 11.5559C1.67231 11.5569 1.56258 11.5358 1.46016 11.4939C1.35775 11.452 1.2647 11.3901 1.18646 11.3119C1.10822 11.2336 1.04634 11.1406 1.00444 11.0382C0.962537 10.9357 0.941453 10.826 0.942414 10.7154C0.943376 10.6047 0.966364 10.4954 1.01004 10.3937C1.05371 10.292 1.1172 10.2001 1.19679 10.1232L5.32179 5.9982L1.19679 1.8732C1.04499 1.71603 0.960996 1.50553 0.962894 1.28703C0.964793 1.06853 1.05243 0.859522 1.20694 0.705015C1.36145 0.550508 1.57046 0.462868 1.78896 0.460969C2.00745 0.45907 2.21795 0.543066 2.37512 0.694864L7.08929 5.40903Z"
+                                      fill="currentColor" fill-rule="evenodd">
+                                </path>
+                            </svg>
+                        </li>
+                        <li>
+                            <a aria-disabled="true" class="text text-18 active" role="link">
+                                آلبوم تصاویر
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Album Gallery -->
+        <div class="album-gallery mt-100">
+            <div class="container">
+                <!-- عنوان آلبوم -->
+                <div class="album-header text-center mb-50" data-aos="fade-up">
+                    <h2 class="heading text-50 fw-700">{{ album.title }}</h2>
+                    <p class="text text-18 text-muted mt-2">گالری تصاویر {{ album.title }}</p>
+                </div>
+
+                <!-- گالری تصاویر - ۵ ستونه -->
+                <div class="gallery-grid" data-aos="fade-up">
+                    {% for image in images %}
+                    	<!-- تصویر 1 -->
+                    <div class="gallery-item">
+                        <a href="{{ image.image.url }}" data-fancybox="album" class="gallery-link">
+                            <img alt="تصویر آلبوم 1" height="400" loading="lazy"
+                                 src="{{ image.image.url }}" width="600"/>
+                            <div class="gallery-overlay">
+                                <span class="icon-search">🔍</span>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- استایل‌های گالری آلبوم -->
+    <style>
+        /* ===== گالری آلبوم ===== */
+        .album-gallery {
+            padding: 20px 0 80px;
+        }
+
+        .album-header h2 {
+            color: #1a2b3c;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 4 / 3;
+            background: #f0f2f5;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            text-decoration: none;
+        }
+
+        .gallery-link img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-link img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .icon-search {
+            font-size: 36px;
+            color: #fff;
+            display: block;
+        }
+
+        /* ریسپانسیو */
+        @media (max-width: 1200px) {
+            .gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .album-header h2 {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .icon-search {
+                font-size: 28px;
+            }
+        }
+
+        .text-muted {
+            color: #7a7f85;
+        }
+
+        .mt-2 {
+            margin-top: 10px;
+        }
+
+        .mt-100 {
+            margin-top: 60px;
+        }
+
+        .mb-50 {
+            margin-bottom: 40px;
+        }
+    </style>
+
+    <!-- Fancybox برای نمایش بزرگ‌نمایی -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Fancybox.bind('[data-fancybox="album"]', {
+                Thumbs: {
+                    type: 'modern',
+                },
+            });
+        });
+    </script>
+{% endblock %}

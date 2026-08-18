@@ -35,3 +35,14 @@ class ContactUs(models.Model):
     class Meta:
         verbose_name = 'ارتباط ما با'
         verbose_name_plural = 'ارتباط با ما'
+
+
+class Album(models.Model):
+    title = models.CharField(max_length=250, null=True, blank=True, verbose_name='عنوان')
+    cover = models.ImageField(upload_to='home/album', null=True, blank=True, verbose_name='کاور')
+    created = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ ایجاد')
+
+
+class Gallery(models.Model):
+    album = models.ForeignKey(Album, on_delete=models.CASCADE, verbose_name='عکس')
+    image = models.ImageField(upload_to='home/galleries', null=True, blank=True, verbose_name='تصویر')

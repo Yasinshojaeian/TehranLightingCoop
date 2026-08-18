@@ -5,14 +5,16 @@
     <header class="header-1 header-floating">
         <div class="container-fluid">
             <div class="header-grid">
-                <a aria-label="Consulo" class="header-logo" href="index.html">
-                    <img alt="لوگوی قالب کنسولو" height="32" src="{% static '/img/logon1.png' %}" style="width: 130px" width="189"/>
+                <a aria-label="Consulo" class="header-logo" href="{% url 'home:home' %}">
+                    <img alt="لوگوی قالب کنسولو" height="32" src="{% static '/img/logon1.png' %}" style="width: 130px"
+                         width="189"/>
                 </a>
                 <drawer-menu>
                     <nav class="header-nav drawer-menu">
                         <div class="d-lg-none header-nav-headings">
-                            <a aria-label="Consulo" class="header-logo" href="index.html">
-                                <img alt="لوگوی قالب کنسولو" height="32" loading="lazy" src="{% static '/img/logo.png' %}"
+                            <a aria-label="Consulo" class="header-logo" href="{% url 'home:home' %}">
+                                <img alt="لوگوی قالب کنسولو" height="32" loading="lazy"
+                                     src="{% static '/img/logo-light.png' %}"
                                      width="189"/>
                             </a>
                             <drawer-opener class="svg-wrapper menu-close" data-drawer=".drawer-menu">
@@ -30,18 +32,22 @@
                         </div>
                         <ul class="header-menu list-unstyled">
                             <li class="nav-item">
-                                <a class="menu-link menu-link-main menu-accrodion" href="index.html">
+                                <a class="menu-link menu-link-main menu-accrodion" href="{% url 'home:home' %}">
                                     صفحه اصلی
-                                    
+
                                 </a>
-                                
+
                             </li>
                             <li class="nav-item">
-                                <a class="menu-link menu-link-main" href="about.html">
+                                <a class="menu-link menu-link-main" href="{% url 'home:about-us' %}">
                                     درباره ما
                                 </a>
                             </li>
-                            
+                            <li class="nav-item">
+                                <a class="menu-link menu-link-main" href="{% url 'home:albums' %}">
+                                    گالری تصاویر
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a class="menu-link menu-link-main" href="{% url 'home:contact' %}">
                                     تماس با ما
@@ -51,7 +57,7 @@
                     </nav>
                 </drawer-menu>
                 <div class="header-actions d-flex align-items-center">
-                    
+
                     <a aria-label="contact us" class="button button--secondary button--slim d-none d-lg-inline-flex"
                        href="{% url 'home:contact' %}">
                         تماس با ما
