@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="fa" dir="rtl">
+<head>
+    <title>
+        قالب مشاوره کسب و کار Consulo
+    </title>
+    <link href="{% static '/img/favicon.png' %}" rel="shortcut icon" type="image/x-icon"/>
+    <!-- meta tags -->
+    <meta charset="utf-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+    <meta content="same-origin" name="view-transition"/>
+    <meta content="Red" name="theme-color"/>
+    <meta content="Consulo" property="og:site_name"/>
+    <meta content="https://www.rtl-theme.com/author/hogondesign/products/" property="og:url"/>
+    <meta content="قالب مشاوره کسب و کار Consulo" property="og:title"/>
+    <meta content="قالب مشاوره کسب و کار Consulo" property="og:description"/>
+    <meta content="قالب مشاوره کسب و کار Consulo" name="description"/>
+
+    {% include 'inc/head_link.html' %}
+    
+</head>
+<body>
+
+{% include 'inc/header.html' %}
+
+{% block main %}
+
+{% endblock %}
+
+
+<!-- Footer -->
+{% include 'inc/footer.html' %}
+<!-- Modal and Drawer Overlay -->
+<drawer-opener id="drawer-overlay">
+</drawer-opener>
+<!-- Scroll to Top Button -->
+<scroll-top>
+    <div class="scroll-to-top">
+        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"
+             xmlns="http://www.w3.org/2000/svg">
+            <path d="m4.5 15.75 7.5-7.5 7.5 7.5" stroke-linecap="round" stroke-linejoin="round">
+            </path>
+        </svg>
+    </div>
+</scroll-top>
+<!-- all js -->
+<script defer="" src="{% static '/js/vendor.js' %}">
+</script>
+<script defer="" src="{% static '/js/main.js' %}">
+</script>
+</body>
+</html>
