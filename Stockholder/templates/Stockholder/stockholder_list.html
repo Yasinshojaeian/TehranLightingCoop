@@ -1,0 +1,315 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+<div class="page-banner overlay">
+    <picture class="media media-bg">
+        <img alt="سهامداران" height="520" loading="eager" src="{% static 'img/self/banner/blog-banner.webp' %}" width="1920"/>
+    </picture>
+    <div class="page-banner-content">
+        <div class="container text-center">
+            <h1 class="heading text-80 fw-700" data-aos="fade-up">سهامداران شرکت</h1>
+            <ul class="breadcrumb list-unstyled" data-aos="fade-up" data-aos-delay="100">
+                <li><a class="text text-18" href="{% url 'home:home' %}">صفحه اصلی</a></li>
+                <li><svg>...</svg></li>
+                <li><a class="text text-18 active">سهامداران</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<section class="stockholders-section mt-100">
+    <div class="container">
+        <div class="section-header text-center mb-50" data-aos="fade-up">
+            <h2 class="heading text-50 fw-700">لیست سهامداران</h2>
+            <p class="text text-18 text-muted mt-2">شرکت‌های موفق با مشارکت سهامداران توانمند ساخته می‌شوند</p>
+        </div>
+
+        <!-- جدول سهامداران -->
+        <div class="table-responsive" data-aos="fade-up">
+            <table class="table table-stockholders">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>نام و نام خانوادگی</th>
+                        <th>سمت</th>
+                        <th>درصد سهام</th>
+                        <th>تعداد سهام</th>
+                        <th>شماره تماس</th>
+                        <th>ایمیل</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stockholder in stockholders %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>
+                            <div class="stockholder-info">
+                                {% if stockholder.image %}
+                                <img src="{{ stockholder.image.url }}" alt="{{ stockholder.full_name }}" class="stockholder-avatar">
+                                {% else %}
+                                <div class="stockholder-avatar-placeholder">{{ stockholder.first_name|first }}{{ stockholder.last_name|first }}</div>
+                                {% endif %}
+                                <span class="stockholder-name"><a style="color: black;text-decoration: none" href="{% url 'stockholder:detail' stockholder.id %}">{{ stockholder.full_name }}</a></span>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge-position">{{ stockholder.display_position }}</span>
+                        </td>
+                        <td>
+                            <span class="share-percentage">{{ stockholder.share_percentage|floatformat:2 }}%</span>
+                            <div class="progress share-progress">
+                                <div class="progress-bar" style="width: {{ stockholder.share_percentage }}%; background: linear-gradient(90deg, #2d7d46, #4CAF50);"></div>
+                            </div>
+                        </td>
+                        <td class="text-center">{{ stockholder.share_count|default:"-" }}</td>
+                        <td>
+                            {% if stockholder.phone %}
+                            <a href="tel:{{ stockholder.phone }}" class="contact-link">
+                                <i class="fas fa-phone"></i> {{ stockholder.phone }}
+                            </a>
+                            {% else %}
+                            <span class="text-muted">-</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if stockholder.email %}
+                            <a href="mailto:{{ stockholder.email }}" class="contact-link">
+                                <i class="fas fa-envelope"></i> {{ stockholder.email }}
+                            </a>
+                            {% else %}
+                            <span class="text-muted">-</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="7" class="text-center py-5">
+                            <i class="fas fa-users fa-3x text-muted mb-3 d-block"></i>
+                            <p class="text-muted">هیچ سهام‌داری ثبت نشده است</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</section>
+
+<style>
+    /* ===== جدول سهامداران ===== */
+    .table-stockholders {
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+        border-collapse: separate;
+        border-spacing: 0;
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .table-stockholders thead {
+        background: linear-gradient(135deg, #1a2b3c, #2c4055);
+        color: #fff;
+    }
+
+    .table-stockholders thead th {
+        padding: 18px 20px;
+        font-weight: 600;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        text-align: right;
+        border: none;
+    }
+
+    .table-stockholders tbody td {
+        padding: 16px 20px;
+        vertical-align: middle;
+        border-bottom: 1px solid #f0f2f5;
+        background: #fff;
+    }
+
+    .table-stockholders tbody tr:hover td {
+        background: #f8f9fc;
+    }
+
+    .table-stockholders tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    /* اطلاعات سهامدار */
+    .stockholder-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .stockholder-avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #e0e5ec;
+    }
+
+    .stockholder-avatar-placeholder {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #4CAF50, #2d7d46);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 16px;
+        flex-shrink: 0;
+    }
+
+    .stockholder-name {
+        font-weight: 600;
+        color: #1a2b3c;
+        font-size: 15px;
+    }
+
+    /* بج سمت */
+    .badge-position {
+        display: inline-block;
+        padding: 4px 14px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 500;
+        background: #e8f0fe;
+        color: #1a73e8;
+    }
+
+    /* درصد سهام */
+    .share-percentage {
+        font-weight: 700;
+        font-size: 16px;
+        color: #1a2b3c;
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    .share-progress {
+        height: 5px;
+        border-radius: 10px;
+        background: #e9ecef;
+        overflow: hidden;
+        width: 100%;
+        max-width: 120px;
+    }
+
+    .share-progress .progress-bar {
+        height: 100%;
+        border-radius: 10px;
+        transition: width 0.6s ease;
+    }
+
+    /* لینک‌های تماس */
+    .contact-link {
+        color: #1a2b3c;
+        text-decoration: none;
+        font-size: 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        transition: color 0.2s;
+    }
+
+    .contact-link:hover {
+        color: #2d7d46;
+    }
+
+    .contact-link i {
+        font-size: 14px;
+        color: #6c757d;
+    }
+
+    /* باکس‌های آمار */
+    .stats-row {
+        gap: 20px;
+    }
+
+    .stat-box {
+        background: #fff;
+        border-radius: 16px;
+        padding: 30px 20px;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease;
+        height: 100%;
+    }
+
+    .stat-box:hover {
+        transform: translateY(-5px);
+    }
+
+    .stat-icon {
+        font-size: 32px;
+        color: #2d7d46;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .stat-number {
+        font-size: 32px;
+        font-weight: 700;
+        color: #1a2b3c;
+        display: block;
+    }
+
+    .stat-label {
+        font-size: 14px;
+        color: #6c757d;
+        display: block;
+        margin-top: 5px;
+    }
+
+    /* ریسپانسیو */
+    @media (max-width: 768px) {
+        .table-stockholders {
+            font-size: 13px;
+        }
+        .table-stockholders thead th,
+        .table-stockholders tbody td {
+            padding: 12px 14px;
+        }
+        .stockholder-avatar,
+        .stockholder-avatar-placeholder {
+            width: 34px;
+            height: 34px;
+            font-size: 13px;
+        }
+        .stockholder-name {
+            font-size: 13px;
+        }
+        .share-progress {
+            max-width: 80px;
+        }
+        .stat-box {
+            padding: 20px 15px;
+        }
+        .stat-number {
+            font-size: 24px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .table-stockholders thead th:not(:first-child):not(:nth-child(2)) {
+            display: none;
+        }
+        .table-stockholders tbody td:not(:first-child):not(:nth-child(2)) {
+            display: none;
+        }
+        .table-stockholders tbody td:first-child {
+            width: 50px;
+        }
+    }
+</style>
+
+{% endblock %}

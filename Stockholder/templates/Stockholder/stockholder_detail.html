@@ -1,0 +1,239 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+    <div class="page-banner overlay">
+        <picture class="media media-bg">
+            <img alt="{{ stockholder.full_name }}" height="520" loading="eager"
+                 src="{% static 'img/self/banner/blog-banner.webp' %}" width="1920"/>
+        </picture>
+        <div class="page-banner-content">
+            <div class="container text-center">
+                <h1 class="heading text-80 fw-700" data-aos="fade-up">{{ stockholder.full_name }}</h1>
+                <ul class="breadcrumb list-unstyled" data-aos="fade-up" data-aos-delay="100">
+                    <li><a class="text text-18" href="{% url 'home:home' %}">صفحه اصلی</a></li>
+                    <li>
+                        <svg>...</svg>
+                    </li>
+                    <li><a class="text text-18" href="{% url 'stockholder:list' %}">سهامداران</a></li>
+                    <li>
+                        <svg>...</svg>
+                    </li>
+                    <li><a class="text text-18 active">{{ stockholder.full_name }}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <section class="stockholder-detail mt-100 mb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-5" data-aos="fade-up">
+                    <div class="stockholder-profile-card">
+                        <div class="profile-image">
+                            {% if stockholder.image %}
+                                <img src="{{ stockholder.image.url }}" alt="{{ stockholder.full_name }}">
+                            {% else %}
+                                <div class="profile-placeholder">
+                                    {{ stockholder.first_name|first }}{{ stockholder.last_name|first }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        <h3 class="profile-name">{{ stockholder.full_name }}</h3>
+                        <p class="profile-position">{{ stockholder.display_position }}</p>
+
+                        <div class="profile-details">
+                            <div class="detail-item">
+                                <span class="label">درصد سهام</span>
+                                <span class="value">{{ stockholder.share_percentage|floatformat:2 }}%</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">تعداد سهام</span>
+                                <span class="value">{{ stockholder.share_count|default:"-" }}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">شماره تماس</span>
+                                <span class="value">
+                                {% if stockholder.phone %}
+                                    <a href="tel:{{ stockholder.phone }}">{{ stockholder.phone }}</a>
+                                {% else %}
+                                    -
+                                {% endif %}
+                            </span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">ایمیل</span>
+                                <span class="value">
+                                {% if stockholder.email %}
+                                    <a href="mailto:{{ stockholder.email }}">{{ stockholder.email }}</a>
+                                {% else %}
+                                    -
+                                {% endif %}
+                            </span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">تاریخ عضویت</span>
+                                <span class="value">{{ stockholder.joined_date|date:"Y/m/d" }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 col-md-7" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stockholder-bio">
+                        <h3 class="bio-title">بیوگرافی</h3>
+                        {% if stockholder.bio %}
+                            <p class="bio-text">{{ stockholder.bio|linebreaks }}</p>
+                        {% else %}
+                            <p class="text-muted">بیوگرافی برای این سهامدار ثبت نشده است.</p>
+                        {% endif %}
+                    </div>
+
+                    <div class="back-to-list mt-40">
+                        <a href="{% url 'stockholder:list' %}" class="btn-back">
+                            <i class="fas fa-arrow-right"></i>
+                            بازگشت به لیست سهامداران
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .stockholder-profile-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px 25px;
+            text-align: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 4px solid #e0e5ec;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #4CAF50, #2d7d46);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a2b3c;
+            margin-bottom: 5px;
+        }
+
+        .profile-position {
+            color: #6c757d;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .profile-details {
+            text-align: right;
+            border-top: 1px solid #f0f2f5;
+            padding-top: 20px;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #f8f9fa;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-item .label {
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        .detail-item .value {
+            font-weight: 600;
+            color: #1a2b3c;
+            font-size: 15px;
+        }
+
+        .detail-item .value a {
+            color: #2d7d46;
+            text-decoration: none;
+        }
+
+        .detail-item .value a:hover {
+            text-decoration: underline;
+        }
+
+        .stockholder-bio {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .bio-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a2b3c;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f2f5;
+        }
+
+        .bio-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #4a5568;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: #f0f2f5;
+            color: #1a2b3c;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background: #1a2b3c;
+            color: #fff;
+            transform: translateX(-5px);
+        }
+
+        .mt-40 {
+            margin-top: 40px;
+        }
+
+        .mb-100 {
+            margin-bottom: 80px;
+        }
+    </style>
+
+{% endblock %}

@@ -81,67 +81,29 @@
                             </div>
                             <ul class="footer-menu list-unstyled">
                                 <li>
-                                    <a aria-label="About Us" class="text text-16 link" href="about.html">
+                                    <a aria-label="About Us" class="text text-16 link" href="{% url 'home:about-us' %}">
                                         درباره ما
                                     </a>
                                 </li>
                                 <li>
-                                    <a aria-label="Our Team" class="text text-16 link" href="team.html">
-                                        تیم ما
+                                    <a aria-label="Our Team" class="text text-16 link" href="{% url 'stockholder:list' %}">
+                                        سهامداران
                                     </a>
                                 </li>
                                 <li>
-                                    <a aria-label="Pricing Plans" class="text text-16 link" href="pricing-plan.html">
-                                        طرح های قیمت گذاری
+                                    <a aria-label="Blogs" class="text text-16 link" href="{% url 'article:article_list' %}">
+                                        مقالات
                                     </a>
                                 </li>
                                 <li>
-                                    <a aria-label="Blogs" class="text text-16 link" href="blog.html">
-                                        وبلاگ ها
-                                    </a>
-                                </li>
-                                <li>
-                                    <a aria-label="Blogs" class="text text-16 link" href="contact.html">
+                                    <a aria-label="Blogs" class="text text-16 link" href="{% url 'home:contact' %}">
                                         تماس با ما
                                     </a>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6">
-                        <div class="footer-widget footer-widget-menu" data-aos="fade-up" data-aos-anchor=".footer-top">
-                            <div class="widget-heading heading text-22">
-                                خدمات
-                            </div>
-                            <ul class="footer-menu list-unstyled">
-                                <li>
-                                    <a aria-label="UI/UX Design" class="text text-16 link" href="project.html">
-                                        طراحی UI/UX
-                                    </a>
-                                </li>
-                                <li>
-                                    <a aria-label="App Development" class="text text-16 link" href="team.html">
-                                        توسعه برنامه
-                                    </a>
-                                </li>
-                                <li>
-                                    <a aria-label="Digital Marketing" class="text text-16 link" href="services.html">
-                                        دیجیتال مارکتینگ
-                                    </a>
-                                </li>
-                                <li>
-                                    <a aria-label="Web Development" class="text text-16 link" href="blog.html">
-                                        توسعه وب
-                                    </a>
-                                </li>
-                                <li>
-                                    <a aria-label="Cyber Security" class="text text-16 link" href="contact.html">
-                                        امنیت سایبری
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                   
                     <div class="col-12 col-md-6">
                         <div class="footer-widget footer-widget-menu" data-aos="fade-up" data-aos-anchor=".footer-top">
                             <div class="widget-heading heading text-22">
