@@ -2,7 +2,9 @@ from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import View
 
+from Article.models import Article
 from Home.models import Slider, Album, Gallery
+from Stockholder.models import Stockholder
 from .forms import ContactUsForm
 
 
@@ -12,8 +14,18 @@ class HomeView(View):
     template_name = 'Home/index.html'
 
     def get(self, request, *args, **kwargs):
-        sliders = Slider.objects.all()
-        return render(request, self.template_name, context={'sliders': sliders})
+        stockholders = Stockholder.objects.all()
+        sliders = Slider.objects.filter(status='2')
+        articles = Article.objects.filter(status='2')
+        last_article = articles.last()
+        mor = []
+        for item in articles:
+            if item.id != last_article.id:
+                mor.append(item)
+
+        return render(request, self.template_name,
+                      context={'sliders': sliders, 'articles': mor, 'last_article': last_article,
+                               'stockholders': stockholders})
 
 
 class AboutUsView(View):
