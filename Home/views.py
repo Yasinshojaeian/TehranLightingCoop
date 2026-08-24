@@ -14,7 +14,8 @@ class HomeView(View):
     template_name = 'Home/index.html'
 
     def get(self, request, *args, **kwargs):
-        stockholders = Stockholder.objects.all()
+        stockholders = Stockholder.objects.all().order_by('order')
+        albums = Album.objects.all()
         sliders = Slider.objects.filter(status='2')
         articles = Article.objects.filter(status='2')
         last_article = articles.last()
@@ -25,7 +26,7 @@ class HomeView(View):
 
         return render(request, self.template_name,
                       context={'sliders': sliders, 'articles': mor, 'last_article': last_article,
-                               'stockholders': stockholders})
+                               'stockholders': stockholders, 'albums': albums})
 
 
 class AboutUsView(View):

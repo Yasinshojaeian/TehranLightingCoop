@@ -8,14 +8,7 @@ class StockholderListView(ListView):
     model = Stockholder
     template_name = 'Stockholder/stockholder_list.html'
     context_object_name = 'stockholders'
-    ordering = ['order', 'last_name']
+    ordering = ['last_name']
 
     def get_queryset(self):
-        return Stockholder.objects.filter(is_active=True)
-
-
-class StockholderDetailView(DetailView):
-    """نمایش جزئیات یک سهامدار"""
-    model = Stockholder
-    template_name = 'Stockholder/stockholder_detail.html'
-    context_object_name = 'stockholder'
+        return Stockholder.objects.all().order_by('order')

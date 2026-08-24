@@ -33,10 +33,7 @@
                         <th>#</th>
                         <th>نام و نام خانوادگی</th>
                         <th>سمت</th>
-                        <th>درصد سهام</th>
-                        <th>تعداد سهام</th>
-                        <th>شماره تماس</th>
-                        <th>ایمیل</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -45,42 +42,16 @@
                         <td>{{ forloop.counter }}</td>
                         <td>
                             <div class="stockholder-info">
-                                {% if stockholder.image %}
-                                <img src="{{ stockholder.image.url }}" alt="{{ stockholder.full_name }}" class="stockholder-avatar">
-                                {% else %}
-                                <div class="stockholder-avatar-placeholder">{{ stockholder.first_name|first }}{{ stockholder.last_name|first }}</div>
-                                {% endif %}
-                                <span class="stockholder-name"><a style="color: black;text-decoration: none" href="{% url 'stockholder:detail' stockholder.id %}">{{ stockholder.full_name }}</a></span>
+
+                                <span class="stockholder-name">{{ stockholder.full_name }}</span>
                             </div>
                         </td>
                         <td>
                             <span class="badge-position">{{ stockholder.display_position }}</span>
                         </td>
-                        <td>
-                            <span class="share-percentage">{{ stockholder.share_percentage|floatformat:2 }}%</span>
-                            <div class="progress share-progress">
-                                <div class="progress-bar" style="width: {{ stockholder.share_percentage }}%; background: linear-gradient(90deg, #2d7d46, #4CAF50);"></div>
-                            </div>
-                        </td>
-                        <td class="text-center">{{ stockholder.share_count|default:"-" }}</td>
-                        <td>
-                            {% if stockholder.phone %}
-                            <a href="tel:{{ stockholder.phone }}" class="contact-link">
-                                <i class="fas fa-phone"></i> {{ stockholder.phone }}
-                            </a>
-                            {% else %}
-                            <span class="text-muted">-</span>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if stockholder.email %}
-                            <a href="mailto:{{ stockholder.email }}" class="contact-link">
-                                <i class="fas fa-envelope"></i> {{ stockholder.email }}
-                            </a>
-                            {% else %}
-                            <span class="text-muted">-</span>
-                            {% endif %}
-                        </td>
+
+
+
                     </tr>
                     {% empty %}
                     <tr>
@@ -147,27 +118,6 @@
         gap: 12px;
     }
 
-    .stockholder-avatar {
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 2px solid #e0e5ec;
-    }
-
-    .stockholder-avatar-placeholder {
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #4CAF50, #2d7d46);
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 700;
-        font-size: 16px;
-        flex-shrink: 0;
-    }
 
     .stockholder-name {
         font-weight: 600;
@@ -186,89 +136,12 @@
         color: #1a73e8;
     }
 
-    /* درصد سهام */
-    .share-percentage {
-        font-weight: 700;
-        font-size: 16px;
-        color: #1a2b3c;
-        display: block;
-        margin-bottom: 4px;
-    }
-
-    .share-progress {
-        height: 5px;
-        border-radius: 10px;
-        background: #e9ecef;
-        overflow: hidden;
-        width: 100%;
-        max-width: 120px;
-    }
-
-    .share-progress .progress-bar {
-        height: 100%;
-        border-radius: 10px;
-        transition: width 0.6s ease;
-    }
-
-    /* لینک‌های تماس */
-    .contact-link {
-        color: #1a2b3c;
-        text-decoration: none;
-        font-size: 14px;
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
-        transition: color 0.2s;
-    }
-
-    .contact-link:hover {
-        color: #2d7d46;
-    }
-
     .contact-link i {
         font-size: 14px;
         color: #6c757d;
     }
 
-    /* باکس‌های آمار */
-    .stats-row {
-        gap: 20px;
-    }
 
-    .stat-box {
-        background: #fff;
-        border-radius: 16px;
-        padding: 30px 20px;
-        text-align: center;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        transition: transform 0.3s ease;
-        height: 100%;
-    }
-
-    .stat-box:hover {
-        transform: translateY(-5px);
-    }
-
-    .stat-icon {
-        font-size: 32px;
-        color: #2d7d46;
-        display: block;
-        margin-bottom: 10px;
-    }
-
-    .stat-number {
-        font-size: 32px;
-        font-weight: 700;
-        color: #1a2b3c;
-        display: block;
-    }
-
-    .stat-label {
-        font-size: 14px;
-        color: #6c757d;
-        display: block;
-        margin-top: 5px;
-    }
 
     /* ریسپانسیو */
     @media (max-width: 768px) {
@@ -279,24 +152,10 @@
         .table-stockholders tbody td {
             padding: 12px 14px;
         }
-        .stockholder-avatar,
-        .stockholder-avatar-placeholder {
-            width: 34px;
-            height: 34px;
-            font-size: 13px;
-        }
         .stockholder-name {
             font-size: 13px;
         }
-        .share-progress {
-            max-width: 80px;
-        }
-        .stat-box {
-            padding: 20px 15px;
-        }
-        .stat-number {
-            font-size: 24px;
-        }
+
     }
 
     @media (max-width: 576px) {
