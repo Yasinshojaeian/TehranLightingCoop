@@ -1,0 +1,408 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-27 02:12+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\Article\templates\Article\blog-details.html:19
+#: .\Article\templates\Article\blog-details.html:38
+msgid "جزئیات وبلاگ"
+msgstr "Article Detail"
+
+#: .\Article\templates\Article\blog-details.html:24
+#: .\Article\templates\Article\blog.html:25 .\Home\templates\Home\about.html:25
+#: .\Home\templates\Home\album-details.html:25
+#: .\Home\templates\Home\album.html:25 .\Home\templates\Home\contact.html:42
+#: .\Stockholder\templates\Stockholder\stockholder_list.html:15
+#: .\templates\inc\header.html:74
+msgid "صفحه اصلی"
+msgstr "Home"
+
+#: .\Article\templates\Article\blog-details.html:141
+msgid "زمان مطالعه"
+msgstr "Read Time"
+
+#: .\Article\templates\Article\blog-details.html:141
+msgid "دقیقه"
+msgstr "Minutes"
+
+#: .\Article\templates\Article\blog-details.html:178
+msgid "دسته بندی ها"
+msgstr "Categories"
+
+#: .\Article\templates\Article\blog-details.html:203
+msgid "پست اخیر"
+msgstr "Last Post"
+
+#: .\Article\templates\Article\blog.html:20
+#: .\Article\templates\Article\blog.html:39
+msgid "وبلاگ ما"
+msgstr "Our Article"
+
+#: .\Article\templates\Article\blog.html:95
+msgid "ادامه مطلب"
+msgstr "More"
+
+#: .\Home\templates\Home\about.html:20 .\Home\templates\Home\about.html:39
+#: .\templates\inc\footer.html:32 .\templates\inc\footer.html:74
+#: .\templates\inc\header.html:83
+msgid "درباره ما"
+msgstr "About Us"
+
+#: .\Home\templates\Home\about.html:70
+msgid "شرکت ما"
+msgstr "Our Company"
+
+#: .\Home\templates\Home\about.html:88
+msgid "درباره ی شرکت"
+msgstr "About the Company"
+
+#: .\Home\templates\Home\about.html:91
+msgid ""
+"شرکت تعاونی صنف سازندگان لوستر، آینه و شمعدان با هدف حمایت از فعالان، "
+"تولیدکنندگان و سازندگان این صنف و در راستای توسعه و سامان‌دهی فعالیت‌های تخصصی "
+"در حوزه محصولات دکوراتیو و روشنایی شکل گرفته است."
+msgstr ""
+"The Cooperative Guild of Chandelier, Mirror and Candlestick Manufacturers "
+"was established to support professionals, producers, and manufacturers in "
+"this industry, with the aim of developing and organizing specialized "
+"activities in the field of decorative and lighting products."
+
+#: .\Home\templates\Home\about.html:93
+msgid ""
+"این مجموعه با تکیه بر ظرفیت و تجربه اعضای صنف، در زمینه حمایت از "
+"تولیدکنندگان و فعالان حوزه لوستر، آینه و شمعدان و تجهیزات و محصولات مرتبط با "
+"دکوراسیون داخلی فعالیت می‌کند و تلاش دارد با ایجاد ارتباط و همکاری میان اعضای "
+"صنف، زمینه رشد، توسعه و ارتقای جایگاه این صنعت را فراهم سازد."
+msgstr ""
+"Building on the capabilities and experience of its members, the organization "
+"supports manufacturers and professionals in the fields of chandeliers, "
+"mirrors, candlesticks, and related interior decoration products and "
+"equipment. It strives to foster growth, development, and a stronger position "
+"for the industry by creating opportunities for communication and cooperation "
+"among its members."
+
+#: .\Home\templates\Home\about.html:95
+msgid ""
+"یکی از فعالیت‌های مهم این مجموعه، برگزاری و مشارکت در رویدادها و نمایشگاه‌های "
+"تخصصی است. شرکت تعاونی سازندگان لوستر، آینه و شمعدان به‌عنوان مجری "
+"بیست‌وهفتمین نمایشگاه لوستر و چراغ‌های تزئینی تهران نیز معرفی شده است؛ موضوعی "
+"که نشان‌دهنده نقش این تعاونی در معرفی توانمندی‌های تولیدکنندگان و ایجاد ارتباط "
+"میان فعالان این حوزه است."
+msgstr ""
+"One of the organization's key activities is hosting and participating in "
+"specialized events and exhibitions. The Cooperative of Chandelier, Mirror "
+"and Candlestick Manufacturers has also been introduced as the organizer of "
+"the 27th Tehran International Exhibition of Chandeliers and Decorative "
+"Lighting, highlighting its role in showcasing manufacturers' capabilities "
+"and connecting professionals in the industry."
+
+#: .\Home\templates\Home\about.html:99
+msgid "ماموریت و اهداف"
+msgstr "Mission and Objectives"
+
+#: .\Home\templates\Home\about.html:103
+msgid ""
+"ماموریت اصلی شرکت تعاونی، ایجاد بستری مناسب برای حمایت از تولید و کسب‌وکارهای "
+"صنفی، افزایش همکاری میان اعضا، معرفی توانمندی‌های سازندگان ایرانی و کمک به "
+"توسعه بازار محصولات این صنعت است."
+msgstr ""
+"The main mission of the cooperative is to create a suitable platform for "
+"supporting production and businesses within the industry, strengthening "
+"collaboration among members, showcasing the capabilities of Iranian "
+"manufacturers, and contributing to the growth of the market for industry "
+"products."
+
+#: .\Home\templates\Home\about.html:105
+msgid "از مهم‌ترین اهداف این مجموعه می‌توان به موارد زیر اشاره کرد:"
+msgstr "The organization's key objectives include:"
+
+#: .\Home\templates\Home\about.html:128
+msgid "حمایت از تولیدکنندگان و سازندگان صنف"
+msgstr "Supporting industry producers and manufacturers"
+
+#: .\Home\templates\Home\about.html:151
+msgid "ایجاد زمینه همکاری و هم‌افزایی میان اعضا"
+msgstr "Fostering cooperation and synergy among members"
+
+#: .\Home\templates\Home\about.html:174
+msgid "معرفی محصولات و توانمندی‌های فعالان صنعت لوستر و آینه و شمعدان"
+msgstr ""
+"Showcasing the products and capabilities of professionals in the chandelier, "
+"mirror, and candlestick industry"
+
+#: .\Home\templates\Home\about.html:197
+msgid "کمک به ارتقای کیفیت و تنوع محصولات"
+msgstr "Contributing to improved product quality and diversity"
+
+#: .\Home\templates\Home\about.html:220
+msgid "حضور و برگزاری نمایشگاه‌ها و رویدادهای تخصصی"
+msgstr "Participating in and organizing specialized exhibitions and events"
+
+#: .\Home\templates\Home\about.html:243
+msgid ""
+"ایجاد ارتباط میان تولیدکنندگان، فروشندگان، طراحان و فعالان حوزه دکوراسیون "
+"داخلی"
+msgstr ""
+"Connecting manufacturers, retailers, designers, and professionals in the "
+"interior decoration industry"
+
+#: .\Home\templates\Home\about.html:266
+msgid "کمک به توسعه بازار و افزایش جایگاه محصولات ایرانی"
+msgstr ""
+"Contributing to market development and strengthening the position of Iranian "
+"products"
+
+#: .\Home\templates\Home\about.html:270
+msgid "چشم انداز"
+msgstr "Vision"
+
+#: .\Home\templates\Home\about.html:274
+msgid ""
+"شرکت تعاونی صنف سازندگان لوستر، آینه و شمعدان در مسیر تبدیل‌شدن به یکی از "
+"مجموعه‌های مؤثر و معتبر صنفی در این حوزه، بر تولید باکیفیت، نوآوری، حفظ اصالت "
+"هنر و صنعت ایرانی و همراهی با نیازهای روز بازار تأکید دارد."
+msgstr ""
+"The Cooperative of Chandelier, Mirror and Candlestick Manufacturers aims to "
+"become one of the leading and trusted organizations in this field, with a "
+"strong focus on high-quality production, innovation, preserving the heritage "
+"of Iranian art and craftsmanship, and responding to the evolving needs of "
+"the market."
+
+#: .\Home\templates\Home\about.html:276
+msgid ""
+"این تعاونی با گردهم‌آوردن ظرفیت‌های مختلف فعالان صنف، می‌تواند نقش مهمی در "
+"معرفی توانمندی‌های سازندگان ایرانی، توسعه بازار محصولات و ایجاد فرصت‌های جدید "
+"برای رشد این صنعت ایفا کند."
+msgstr ""
+"By bringing together the diverse capabilities of industry professionals, the "
+"cooperative can play an important role in showcasing the capabilities of "
+"Iranian manufacturers, expanding product markets, and creating new "
+"opportunities for the growth of the industry."
+
+#: .\Home\templates\Home\about.html:278
+msgid ""
+"شرکت تعاونی صنف سازندگان لوستر، آینه و شمعدان؛ همراه تولیدکنندگان، حامی صنعت "
+"و پیونددهنده ظرفیت‌های این صنف"
+msgstr ""
+"The Cooperative of Chandelier, Mirror and Candlestick Manufacturers; "
+"supporting producers, championing the industry, and connecting the "
+"capabilities of its members."
+
+#: .\Home\templates\Home\about.html:280
+msgid "سال تاسیس: ۱۳۶۰"
+msgstr "Established: 1981"
+
+#: .\Home\templates\Home\album-details.html:20
+#: .\Home\templates\Home\album-details.html:39
+#, fuzzy
+#| msgid "گالری تصاویر"
+msgid "آلبوم تصاویر"
+msgstr "Photo Gallery"
+
+#: .\Home\templates\Home\album-details.html:53
+#, fuzzy
+#| msgid "گالری تصاویر"
+msgid "گالری تصاویر "
+msgstr "Photo Gallery"
+
+#: .\Home\templates\Home\album.html:20 .\Home\templates\Home\album.html:39
+#: .\templates\inc\header.html:92
+msgid "گالری تصاویر"
+msgstr "Photo Gallery"
+
+#: .\Home\templates\Home\contact.html:37 .\Home\templates\Home\contact.html:56
+#: .\Home\templates\Home\contact.html:88 .\Home\templates\Home\contact.html:112
+#: .\templates\inc\footer.html:49 .\templates\inc\footer.html:79
+#: .\templates\inc\header.html:119
+msgid "تماس با ما"
+msgstr "Contact Us"
+
+#: .\Home\templates\Home\contact.html:115 .\templates\inc\footer.html:18
+msgid "ایران تهران خیابان خاوران خیابان نباتی پلاک ۶۰"
+msgstr "No. 60, Nabati St., Khavaran St., Tehran, Iran"
+
+#: .\Home\templates\Home\contact.html:125 .\templates\inc\footer.html:19
+msgid "شماره تماس"
+msgstr "Phone Number"
+
+#: .\Home\templates\Home\contact.html:138
+msgid "قرار ملاقات بگذارید"
+msgstr "Make an Appointment"
+
+#: .\Home\templates\Home\contact.html:141
+msgid "با ما در تماس باشید"
+msgstr "Get in Touch"
+
+#: .\Home\templates\Home\contact.html:159
+msgid "ارسال پیام"
+msgstr "Send a Message"
+
+#: .\Home\templates\Home\index.html:185
+msgid "به وبسایت"
+msgstr "welcome to"
+
+#: .\Home\templates\Home\index.html:206
+msgid "شرکت تعاونی صنف سازندگان"
+msgstr "Cooperative Guild of Lighting Manufacturers"
+
+#: .\Home\templates\Home\index.html:209
+msgid "لوستر ، آیینه و شمعدان تهران"
+msgstr "Chandeliers, Mirrors & Candlesticks of Tehran"
+
+#: .\Home\templates\Home\index.html:230
+msgid "خوش آمدید"
+msgstr "website"
+
+#: .\Home\templates\Home\index.html:298
+msgid "آخرین اخبار از ما"
+msgstr "Latest News From Us"
+
+#: .\Home\templates\Home\index.html:316
+msgid "رویداد های اخیر را مشاهده کنید!"
+msgstr "View Our Recent Events!"
+
+#: .\Home\templates\Home\index.html:520
+#: .\Stockholder\templates\Stockholder\stockholder_list.html:19
+#: .\templates\inc\footer.html:38 .\templates\inc\header.html:110
+msgid "هیئت مدیره"
+msgstr "Board of Directors"
+
+#: .\Home\templates\Home\index.html:538
+msgid "هیئت مدیره محترم شرکت"
+msgstr "Esteemed Board of Directors"
+
+#: .\Home\templates\Home\index.html:550
+#: .\Stockholder\templates\Stockholder\stockholder_list.html:42
+msgid "نام و نام خانوادگی"
+msgstr "Full Name"
+
+#: .\Home\templates\Home\index.html:551 .\Stockholder\models.py:23
+#: .\Stockholder\templates\Stockholder\stockholder_list.html:43
+msgid "سمت"
+msgstr "Position"
+
+#: .\Home\templates\Home\index.html:589
+#: .\Stockholder\templates\Stockholder\stockholder_list.html:81
+msgid "عضوی ثبت نشده است"
+msgstr "No Members Registered"
+
+#: .\Home\templates\Home\index.html:626
+msgid "مقالات ما"
+msgstr "Our Articles"
+
+#: .\Home\templates\Home\index.html:644
+msgid "آخرین مقالات ما"
+msgstr "Our Latest Articles"
+
+#: .\Home\templates\Home\index.html:760
+msgid "بیشتر کشف کنید"
+msgstr "Discover More"
+
+#: .\Stockholder\models.py:10
+msgid "مدیرعامل"
+msgstr "CEO"
+
+#: .\Stockholder\models.py:11
+
+msgid "رئیس هیئت مدیره"
+msgstr "Chairman of the Board"
+
+#: .\Stockholder\models.py:12
+
+msgid "نایب رئیس هیئت مدیره"
+msgstr "Vice Chairman"
+
+#: .\Stockholder\models.py:13
+
+msgid "عضو هیئت مدیره"
+msgstr "Board Member"
+
+#: .\Stockholder\models.py:14
+msgid "مدیر"
+msgstr "Manager"
+
+#: .\Stockholder\models.py:15
+msgid "ناظر"
+msgstr "Supervisor"
+
+#: .\Stockholder\models.py:16 .\Stockholder\models.py:62
+msgid "سهامدار"
+msgstr "Shareholder"
+
+#: .\Stockholder\models.py:17
+msgid "سایر"
+msgstr "Other"
+
+#: .\Stockholder\models.py:28
+msgid "تاریخ عضویت"
+msgstr "Join Date"
+
+#: .\Stockholder\models.py:33
+
+msgid "آخرین بروزرسانی"
+msgstr "Latest Update"
+
+#: .\Stockholder\models.py:39
+msgid "ترتیب"
+msgstr ""
+
+#: .\Stockholder\models.py:45
+msgid "نام"
+msgstr "Name"
+
+#: .\Stockholder\models.py:50
+msgid "نام خانوادگی"
+msgstr "Last Name"
+
+#: .\Stockholder\models.py:57
+msgid "سمت سفارشی"
+msgstr "Custom Position"
+
+#: .\Stockholder\models.py:63
+msgid "سهامداران"
+msgstr "Shareholders"
+
+#: .\Stockholder\templates\Stockholder\stockholder_list.html:13
+msgid "هیئت مدیره شرکت"
+msgstr "Esteemed Board of Directors"
+
+#: .\Stockholder\templates\Stockholder\stockholder_list.html:28
+msgid "لیست هیئت مدیره"
+msgstr "Board of Directors"
+
+#: .\Stockholder\templates\Stockholder\stockholder_list.html:29
+msgid "شرکت‌های موفق با مشارکت سهامداران توانمند ساخته می‌شوند"
+msgstr ""
+"Successful companies are built through the participation of capable "
+"shareholders."
+
+#: .\templates\inc\footer.html:18
+msgid "آدرس"
+msgstr "address"
+
+#: .\templates\inc\footer.html:27
+msgid "لینک سریع"
+msgstr "Quick Links"
+
+#: .\templates\inc\footer.html:44 .\templates\inc\header.html:101
+msgid "مقالات"
+msgstr "Articles"
+
+#: .\templates\inc\footer.html:66
+msgid "کلیه حقوق محفوظ است."
+msgstr "All rights reserved."

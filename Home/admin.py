@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from Home.models import Slider, ContactUs, Album, Gallery
-
+from parler.admin import TranslatableAdmin
 
 # Register your models here.
 
@@ -20,6 +20,6 @@ class GalleryAdmin(admin.TabularInline):
 
 
 @admin.register(Album)
-class AlbumAdmin(admin.ModelAdmin):
+class AlbumAdmin(TranslatableAdmin):
     list_display = ('title',)
     inlines = [GalleryAdmin]

@@ -1,41 +1,69 @@
 from django.db import models
-from django.utils.text import slugify
+from django.utils.translation import gettext_lazy as _
+from parler.models import TranslatableModel, TranslatedFields
 
 
-class Stockholder(models.Model):
+class Stockholder(TranslatableModel):
     """مدل سهامداران شرکت"""
 
-    # انتخاب‌های سمت
     POSITION_CHOICES = [
-        ('ceo', 'مدیرعامل'),
-        ('chairman', 'رئیس هیئت مدیره'),
-        ('vice_chairman', 'نایب رئیس هیئت مدیره'),
-        ('board_member', 'عضو هیئت مدیره'),
-        ('manager', 'مدیر'),
-        ('supervisor', 'ناظر'),
-        ('shareholder', 'سهامدار'),
-        ('other', 'سایر'),
+        ('ceo', _('مدیرعامل')),
+        ('chairman', _('رئیس هیئت مدیره')),
+        ('vice_chairman', _('نایب رئیس هیئت مدیره')),
+        ('board_member', _('عضو هیئت مدیره')),
+        ('manager', _('مدیر')),
+        ('supervisor', _('ناظر')),
+        ('shareholder', _('سهامدار')),
+        ('other', _('سایر')),
     ]
 
-    # فیلدهای اصلی
-    first_name = models.CharField(max_length=100, verbose_name="نام")
-    last_name = models.CharField(max_length=100, verbose_name="نام خانوادگی")
-    position = models.CharField(max_length=50, choices=POSITION_CHOICES, verbose_name="سمت")
-    position_custom = models.CharField(max_length=100, blank=True, null=True, verbose_name="سمت (سفارشی)")
+    position = models.CharField(
+        max_length=50,
+        choices=POSITION_CHOICES,
+        verbose_name=_("سمت")
+    )
 
-    # فیلدهای زمانی
-    joined_date = models.DateField(auto_now_add=True, verbose_name="تاریخ加入")
-    updated_at = models.DateTimeField(auto_now=True, verbose_name="آخرین بروزرسانی")
+    joined_date = models.DateField(
+        auto_now_add=True,
+        verbose_name=_("تاریخ عضویت")
+    )
 
-    order = models.IntegerField(null=True,blank=True)
+    updated_at = models.DateTimeField(
+        auto_now=True,
+        verbose_name=_("آخرین بروزرسانی")
+    )
+
+    order = models.IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_("ترتیب")
+    )
+
+    translations = TranslatedFields(
+        first_name=models.CharField(
+            max_length=100,
+            verbose_name=_("نام")
+        ),
+
+        last_name=models.CharField(
+            max_length=100,
+            verbose_name=_("نام خانوادگی")
+        ),
+
+        position_custom=models.CharField(
+            max_length=100,
+            blank=True,
+            null=True,
+            verbose_name=_("سمت سفارشی")
+        ),
+    )
 
     class Meta:
-        verbose_name = "سهامدار"
-        verbose_name_plural = "سهامداران"
-        ordering = ['last_name', 'first_name']
+        verbose_name = _("سهامدار")
+        verbose_name_plural = _("سهامداران")
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name} - {self.get_position_display()}"
+        return self.full_name
 
     @property
     def full_name(self):
@@ -43,7 +71,7 @@ class Stockholder(models.Model):
 
     @property
     def display_position(self):
-        """نمایش سمت - اگر سفارشی بود از آن استفاده کن"""
         if self.position == 'other' and self.position_custom:
             return self.position_custom
+
         return self.get_position_display()

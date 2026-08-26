@@ -27,21 +27,25 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'parler',
     'ckeditor',
     # My App
     'Home.apps.HomeConfig',
     'Article.apps.ArticleConfig',
     'Stockholder.apps.StockholderConfig',
+
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'TehranLightingCoop.urls'
@@ -111,6 +115,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'fa-ir'
 
+LANGUAGES = [
+    ('fa', 'فارسی'),
+    ('en', 'English'),
+]
+
 TIME_ZONE = 'Asia/Tehran'
 
 USE_I18N = True
@@ -134,3 +143,18 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'fa'},
+        {'code': 'en'},
+    ),
+    'default': {
+        'fallbacks': ['fa'],
+        'hide_untranslated': False,
+    }
+}
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]

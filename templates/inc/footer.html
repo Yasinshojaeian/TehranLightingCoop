@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load i18n %}
 <footer>
 
     <!-- Footer Main -->
@@ -15,8 +15,8 @@
                                      width="189"/>
                             </a>
                             <p class="text text-16" style="white-space: pre-line">
-                                آدرس ؛ ایران تهران خیابان خاوران خیابان نباتی پلاک ۶۰
-                                شماره تماس :۳۳۷۳۳۰۷۸ - ۳۳۷۳۳۰۷۷ - ۳۳۷۳۳۰۷۶
+                                {% trans 'آدرس' %} ؛ {% trans 'ایران تهران خیابان خاوران خیابان نباتی پلاک ۶۰' %}
+                                {% trans 'شماره تماس' %} :۳۳۷۳۳۰۷۸ - ۳۳۷۳۳۰۷۷ - ۳۳۷۳۳۰۷۶
                             </p>
 
                         </div>
@@ -24,29 +24,29 @@
                     <div class="col-12 col-md-12">
                         <div class="footer-widget footer-widget-menu" data-aos="fade-up" data-aos-anchor=".footer-top">
                             <div class="widget-heading heading text-22">
-                                لینک سریع
+                                {% trans 'لینک سریع' %}
                             </div>
                             <ul class="footer-menu list-unstyled">
                                 <li>
                                     <a aria-label="About Us" class="text text-16 link" href="{% url 'home:about-us' %}">
-                                        درباره ما
+                                        {% trans 'درباره ما' %}
                                     </a>
                                 </li>
                                 <li>
                                     <a aria-label="Our Team" class="text text-16 link"
                                        href="{% url 'stockholder:list' %}">
-                                        سهامداران
+                                        {% trans 'هیئت مدیره' %}
                                     </a>
                                 </li>
                                 <li>
                                     <a aria-label="Blogs" class="text text-16 link"
                                        href="{% url 'article:article_list' %}">
-                                        مقالات
+                                        {% trans 'مقالات' %}
                                     </a>
                                 </li>
                                 <li>
                                     <a aria-label="Blogs" class="text text-16 link" href="{% url 'home:contact' %}">
-                                        تماس با ما
+                                        {% trans 'تماس با ما' %}
                                     </a>
                                 </li>
                             </ul>
@@ -63,7 +63,7 @@
                     <div class="col-12 col-md-6 col-lg-6">
                         <div class="footer-copyright text text-16">
                             © <span class="current-year"></span>
-                            کلیه حقوق محفوظ است.
+                            {% trans 'کلیه حقوق محفوظ است.' %}
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-6">
@@ -71,12 +71,12 @@
 
                             <li>
                                 <a aria-label="FAQ" class="text text-16 link" href="{% url 'home:about-us' %}">
-                                    درباره ما
+                                    {% trans 'درباره ما' %}
                                 </a>
                             </li>
                             <li>
                                 <a aria-label="FAQ" class="text text-16 link" href="{% url 'home:contact' %}">
-                                    تماس با ما
+                                    {% trans 'تماس با ما' %}
                                 </a>
                             </li>
                         </ul>

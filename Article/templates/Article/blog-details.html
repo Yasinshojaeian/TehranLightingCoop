@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 {% block meta %}
     <!-- Main -->
@@ -15,12 +16,12 @@
             <div class="page-banner-content">
                 <div class="container text-center">
                     <h1 class="heading text-80 fw-700" data-aos="fade-up">
-                        جزئیات وبلاگ
+                        {% trans 'جزئیات وبلاگ' %}
                     </h1>
                     <ul class="breadcrumb list-unstyled" data-aos="fade-up" data-aos-delay="100">
                         <li>
                             <a aria-label="Home Page" class="text text-18" href="{% url 'home:home' %}">
-                                صفحه اصلی
+                                {% trans 'صفحه اصلی' %}
                             </a>
                         </li>
                         <li>
@@ -34,7 +35,7 @@
                         </li>
                         <li>
                             <a aria-disabled="true" class="text text-18 active" role="link">
-                                جزئیات وبلاگ
+                                {% trans 'جزئیات وبلاگ' %}
                             </a>
                         </li>
                     </ul>
@@ -137,7 +138,7 @@
                                                     </clippath>
                                                 </defs>
                                             </svg>
-                                            زمان مطالعه {{ article.read_time }} دقیقه
+                                            {% trans 'زمان مطالعه' %} {{ article.read_time }} {% trans 'دقیقه' %}
                                         </a>
                                     </div>
                                     <h2 class="card-blog-heading heading text-50">
@@ -174,7 +175,7 @@
 
                                 <div class="sidebar-widget radius18" data-aos="fade-up">
                                     <h2 class="sidebar-heading heading text-24">
-                                        دسته بندی ها
+                                        {% trans 'دسته بندی ها' %}
                                     </h2>
                                     <ul class="blog-categories list-unstyled">
                                         {% for category in categories %}
@@ -199,7 +200,7 @@
                                 </div>
                                 <div class="sidebar-widget radius18" data-aos="fade-up">
                                     <h2 class="sidebar-heading heading text-24">
-                                        پست اخیر
+                                        {% trans 'پست اخیر' %}
                                     </h2>
                                     <ul class="recent-post list-unstyled">
                                         {% for other_article in other_articles %}

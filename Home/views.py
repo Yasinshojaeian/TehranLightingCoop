@@ -22,6 +22,15 @@ class HomeView(View):
         mor = []
         for item in articles:
             if item.id != last_article.id:
+                print('-' * 90)
+                print(
+                    item.pk,
+                    item.get_current_language(),
+                    item.title,
+                    repr(item.slug)
+                )
+                print('-' * 90)
+
                 mor.append(item)
 
         return render(request, self.template_name,

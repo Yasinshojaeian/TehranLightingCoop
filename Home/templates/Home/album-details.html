@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 {% block main %}
     <!-- Main -->
@@ -16,12 +17,12 @@
             <div class="page-banner-content">
                 <div class="container text-center">
                     <h1 class="heading text-80 fw-700" data-aos="fade-up">
-                        آلبوم تصاویر
+                        {% trans 'آلبوم تصاویر' %}
                     </h1>
                     <ul class="breadcrumb list-unstyled" data-aos="fade-up" data-aos-delay="100">
                         <li>
-                            <a aria-label="Home Page" class="text text-18" href="index.html">
-                                صفحه اصلی
+                            <a aria-label="Home Page" class="text text-18" href="{% url 'home:home' %}">
+                                {% trans 'صفحه اصلی' %}
                             </a>
                         </li>
                         <li>
@@ -35,7 +36,7 @@
                         </li>
                         <li>
                             <a aria-disabled="true" class="text text-18 active" role="link">
-                                آلبوم تصاویر
+                                {% trans 'آلبوم تصاویر' %}
                             </a>
                         </li>
                     </ul>
@@ -49,7 +50,7 @@
                 <!-- عنوان آلبوم -->
                 <div class="album-header text-center mb-50" data-aos="fade-up">
                     <h2 class="heading text-50 fw-700">{{ album.title }}</h2>
-                    <p class="text text-18 text-muted mt-2">گالری تصاویر {{ album.title }}</p>
+                    <p class="text text-18 text-muted mt-2">{% trans 'گالری تصاویر ' %}{{ album.title }}</p>
                 </div>
 
                 <!-- گالری تصاویر - ۵ ستونه -->

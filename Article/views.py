@@ -34,12 +34,26 @@ class ArticleDetailView(View):
 
     def get(self, request, *args, **kwargs):
         categories = Category.objects.filter(status='2')
-        article = get_object_or_404(Article, slug=kwargs['slug'])
-        other_articles = Article.objects.filter(status='2')
-        other_list = []
-        for a in other_articles:
-            if a.id != article.id:
-                other_list.append(a)
 
-        return render(request, self.template_name,
-                      context={'article': article, 'other_articles': other_list, 'categories': categories})
+        article = get_object_or_404(
+            Article.objects.language(request.LANGUAGE_CODE),
+            translations__slug=kwargs['slug'],
+            translations__language_code=request.LANGUAGE_CODE,
+        )
+
+        other_articles = (
+            Article.objects
+            .language(request.LANGUAGE_CODE)
+            .filter(status='2')
+            .exclude(id=article.id)
+        )
+
+        return render(
+            request,
+            self.template_name,
+            context={
+                'article': article,
+                'other_articles': other_articles,
+                'categories': categories,
+            }
+        )

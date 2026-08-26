@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 {% block main %}
     <!-- Main -->
@@ -16,12 +17,12 @@
             <div class="page-banner-content">
                 <div class="container text-center">
                     <h1 class="heading text-80 fw-700" data-aos="fade-up">
-                        گالری تصاویر
+                        {% trans 'گالری تصاویر' %}
                     </h1>
                     <ul class="breadcrumb list-unstyled" data-aos="fade-up" data-aos-delay="100">
                         <li>
                             <a aria-label="Home Page" class="text text-18" href="{% url 'home:home' %}">
-                                صفحه اصلی
+                                {% trans 'صفحه اصلی' %}
                             </a>
                         </li>
                         <li>
@@ -35,7 +36,7 @@
                         </li>
                         <li>
                             <a aria-disabled="true" class="text text-18 active" role="link">
-                                گالری تصاویر
+                                {% trans 'گالری تصاویر' %}
                             </a>
                         </li>
                     </ul>

@@ -1,7 +1,9 @@
 {% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 
 <!DOCTYPE html>
-<html class="no-js" lang="fa" dir="rtl">
+<html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_CODE == 'fa' %}rtl{% else %}ltr{% endif %}">
 <head>
     <title>
         شرکت تعاونی صنف سازندگان لوستر ، آیینه و شمعدان تهران
@@ -13,8 +15,7 @@
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
     <meta content="same-origin" name="view-transition"/>
     <meta content="Red" name="theme-color"/>
-    <meta content="Consulo" property="og:site_name"/>
-    <meta content="https://www.rtl-theme.com/author/hogondesign/products/" property="og:url"/>
+    <meta content="" property="og:site_name"/>
     <meta content="سایت شرکت تعاونی صنف سازندگان لوستر ، آیینه و شمعدان تهران" property="og:title"/>
     <meta content="سایت شرکت تعاونی صنف سازندگان لوستر ، آیینه و شمعدان تهران" property="og:description"/>
     <meta content="سایت شرکت تعاونی صنف سازندگان لوستر ، آیینه و شمعدان تهران" name="description"/>
